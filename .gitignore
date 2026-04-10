@@ -1,0 +1,71 @@
+# ===== Зависимости =====
+node_modules/
+bower_components/
+jspm_packages/
+
+# ===== Сборка / выходные файлы =====
+dist/
+build/
+out/
+.cache/
+.parcel-cache/
+.next/
+.nuxt/
+.vite/
+
+# ===== Логи =====
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ===== Переменные окружения / секреты =====
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# ===== Редакторы и IDE =====
+.vscode/
+!.vscode/settings.json
+!.vscode/extensions.json
+.idea/
+*.swp
+*.swo
+*.sublime-workspace
+*.sublime-project
+
+# ===== Операционные системы =====
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Linux
+*~
+.directory
+.Trash-*
+
+# ===== Временные файлы =====
+*.tmp
+*.temp
+*.bak
+*.old
+*~
+
+# ===== Карты исходников (опционально) =====
+# *.map
+
+# ===== Тесты / покрытие =====
+coverage/
+.nyc_output/
