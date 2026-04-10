@@ -1,0 +1,408 @@
+/* ============================================================
+   Hero Section
+   ============================================================ */
+
+.hero {
+  position: relative;
+  padding-top: calc(var(--header-h) + clamp(2rem, 4vw, 4rem));
+  padding-bottom: clamp(4rem, 6vw + 2rem, 8rem);
+  overflow: hidden;
+  background: var(--bg);
+}
+
+/* Декоративный фон: мягкие blob-градиенты */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 40% at 80% 10%,
+      color-mix(in srgb, var(--accent) 15%, transparent) 0%,
+      transparent 70%),
+    radial-gradient(ellipse 50% 40% at 10% 90%,
+      color-mix(in srgb, var(--accent-warm) 10%, transparent) 0%,
+      transparent 70%);
+  pointer-events: none;
+}
+
+/* Hero side: фото объекта вместо формы (на десктопе) */
+.hero__visual {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+  background: var(--bg-muted);
+  box-shadow: var(--shadow-lg);
+}
+
+.hero__visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s cubic-bezier(.22,1,.36,1);
+}
+
+.hero__visual:hover img { transform: scale(1.04); }
+
+.hero__visual::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,
+    transparent 40%,
+    rgba(22, 24, 29, 0.7) 100%);
+  pointer-events: none;
+}
+
+.hero__visual-overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: var(--space-6);
+  z-index: 2;
+  color: var(--text-inv);
+}
+
+.hero__visual-overlay-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  margin-bottom: var(--space-2);
+}
+
+.hero__visual-overlay-title {
+  font-family: 'Fraunces', serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  font-variation-settings: 'SOFT' 30, 'opsz' 96;
+}
+
+.hero__visual-overlay-meta {
+  display: flex;
+  gap: var(--space-4);
+  margin-top: var(--space-3);
+  font-size: 0.8125rem;
+  color: color-mix(in srgb, var(--text-inv) 75%, transparent);
+}
+
+.hero__visual-overlay-meta strong {
+  display: block;
+  color: var(--text-inv);
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.hero__inner {
+  position: relative;
+  display: grid;
+  gap: clamp(2.5rem, 5vw, 5rem);
+  grid-template-columns: 1fr;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .hero__inner {
+    grid-template-columns: 1.15fr 0.85fr;
+  }
+}
+
+/* ── Content ── */
+.hero__overline {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-5);
+}
+
+.hero__overline::before {
+  content: '';
+  width: 2rem;
+  height: 1px;
+  background: var(--accent);
+}
+
+.hero__title {
+  margin-bottom: var(--space-5);
+  color: var(--text);
+}
+
+.hero__title em {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 500;
+  color: var(--accent);
+  font-variation-settings: 'SOFT' 100, 'opsz' 144;
+}
+
+.hero__title-accent {
+  display: inline-block;
+  position: relative;
+  white-space: nowrap;
+  color: var(--accent);
+}
+
+.hero__title-accent::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0.08em;
+  height: 0.12em;
+  background: color-mix(in srgb, var(--accent) 20%, transparent);
+  border-radius: var(--radius-full);
+  z-index: -1;
+}
+
+.hero__lead {
+  max-width: 56ch;
+  margin-bottom: var(--space-7);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+}
+
+/* ── USP list ── */
+.hero__usp {
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--border);
+}
+
+@media (min-width: 640px) {
+  .hero__usp {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.usp {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.usp__value {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(1.75rem, 1rem + 2.5vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--text);
+  letter-spacing: -0.025em;
+  font-variation-settings: 'SOFT' 20, 'opsz' 144;
+}
+
+.usp__value sup {
+  font-size: 0.5em;
+  color: var(--accent);
+  margin-left: 0.1em;
+  vertical-align: super;
+  line-height: 0;
+}
+
+.usp__label {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  line-height: 1.35;
+}
+
+/* ── Side Card (фото + форма) ── */
+.hero__card {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+
+.hero__card-photo {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--bg-muted);
+}
+
+.hero__card-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.4s cubic-bezier(.22,1,.36,1);
+}
+
+.hero__card:hover .hero__card-photo img {
+  transform: scale(1.05);
+}
+
+.hero__card-photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,
+    transparent 50%,
+    rgba(22, 24, 29, 0.85) 100%);
+  pointer-events: none;
+}
+
+.hero__card-photo-caption {
+  position: absolute;
+  left: var(--space-5);
+  right: var(--space-5);
+  bottom: var(--space-5);
+  z-index: 2;
+  color: var(--text-inv);
+}
+
+.hero__card-photo-caption-label {
+  display: inline-block;
+  padding: 0.25rem 0.625rem;
+  background: var(--accent);
+  color: var(--bg);
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--space-2);
+}
+
+.hero__card-photo-caption-title {
+  font-family: 'Fraunces', serif;
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.2;
+  font-variation-settings: 'SOFT' 30, 'opsz' 96;
+}
+
+.hero__card-photo-caption-meta {
+  font-size: 0.75rem;
+  color: color-mix(in srgb, var(--text-inv) 70%, transparent);
+  margin-top: var(--space-1);
+}
+
+.hero__card-body {
+  position: relative;
+  padding: clamp(1.5rem, 3vw + 0.5rem, 2.5rem);
+}
+
+.hero__card-body::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 50% 0%,
+    color-mix(in srgb, var(--accent) 6%, transparent) 0%,
+    transparent 70%);
+  pointer-events: none;
+}
+
+.hero__card-head {
+  position: relative;
+  margin-bottom: var(--space-5);
+}
+
+.hero__card-title {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(1.375rem, 0.9rem + 1.5vw, 1.75rem);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  margin-bottom: var(--space-2);
+}
+
+.hero__card-subtitle {
+  font-size: 0.9375rem;
+  color: var(--text-muted);
+}
+
+.hero__form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.hero__form-field {
+  position: relative;
+}
+
+.hero__form-input {
+  width: 100%;
+  padding: 1rem 1.125rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  color: var(--text);
+  transition: border-color var(--t-base), background var(--t-base);
+}
+
+.hero__form-input::placeholder {
+  color: var(--text-muted);
+}
+
+.hero__form-input:hover {
+  border-color: var(--border-strong);
+}
+
+.hero__form-input:focus {
+  outline: none;
+  border-color: var(--accent);
+  background: var(--bg-card);
+}
+
+.hero__form-disclaimer {
+  margin-top: var(--space-2);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.hero__form-disclaimer a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.hero__bonus {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+  padding-top: var(--space-5);
+  border-top: 1px dashed var(--border);
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.hero__bonus-icon {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: color-mix(in srgb, var(--accent-warm) 12%, transparent);
+  color: var(--accent-warm);
+  border-radius: var(--radius-md);
+}
+
+.hero__bonus-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.hero__bonus strong {
+  color: var(--text);
+  font-weight: 600;
+}
