@@ -91,9 +91,10 @@
              loading="eager" />
       </div>
 
-      <!-- Изогнутый разделитель снизу -->
-      <svg class="hero__curve" viewBox="0 0 1440 110" preserveAspectRatio="none" aria-hidden="true">
-        <path d="M0,110 L0,40 C240,90 480,110 720,100 C960,90 1200,50 1440,80 L1440,110 Z"/>
+      <!-- Диагональный разделитель снизу: левый край выше, правый ниже + лёгкий echo-слой -->
+      <svg class="hero__curve" viewBox="0 0 1440 130" preserveAspectRatio="none" aria-hidden="true">
+        <path class="hero__curve-echo" d="M0,130 L0,28 L1440,80 L1440,130 Z"/>
+        <path class="hero__curve-main" d="M0,130 L0,55 L1440,105 L1440,130 Z"/>
       </svg>
 
       <div class="container hero__inner">

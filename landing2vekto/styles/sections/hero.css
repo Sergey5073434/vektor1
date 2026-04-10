@@ -52,19 +52,25 @@
   pointer-events: none;
 }
 
-/* Изогнутый разделитель снизу — переход к следующей секции */
+/* Диагональный разделитель снизу — переход к следующей секции */
 .hero__curve {
   position: absolute;
   left: 0;
   right: 0;
   bottom: -1px;
   width: 100%;
-  height: clamp(60px, 7vw, 110px);
+  height: clamp(70px, 8vw, 130px);
   z-index: 1;
   display: block;
 }
 
-.hero__curve path {
+/* Задний echo-слой (выше) — деликатный песочный оттенок */
+.hero__curve-echo {
+  fill: var(--border);
+}
+
+/* Передний слой — основной фон следующей секции */
+.hero__curve-main {
   fill: var(--bg);
 }
 
