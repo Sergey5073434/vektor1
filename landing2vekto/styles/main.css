@@ -11,6 +11,7 @@
 /* ── Components ── */
 @import url('./components/buttons.css');
 @import url('./components/header.css');
+@import url('./components/chat-widget.css');
 
 /* ── Sections ── */
 @import url('./sections/hero.css');

@@ -1063,6 +1063,87 @@
     </div>
   </footer>
 
+  <!-- ======================================================
+       CHAT WIDGET — инженер на связи
+  ====================================================== -->
+  <div class="chat-widget" id="chatWidget" aria-live="polite">
+
+    <!-- Свёрнутое состояние: кнопка с аватаром -->
+    <button type="button" class="chat-widget__toggle" id="chatToggle" aria-label="Открыть чат с инженером" aria-expanded="false">
+      <span class="chat-widget__avatar" aria-hidden="true">
+        <!-- SVG-иконка каски (placeholder, заменим на фото когда будет) -->
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M2 18h20"/>
+          <path d="M5 18a7 7 0 0 1 14 0"/>
+          <path d="M12 11V5a2 2 0 0 1 4 0"/>
+          <line x1="12" y1="2" x2="12" y2="4"/>
+        </svg>
+      </span>
+      <span class="chat-widget__toggle-text">
+        <strong>Анна, инженер</strong>
+        <span>Ответит за&nbsp;5&nbsp;минут</span>
+      </span>
+      <span class="chat-widget__badge" aria-hidden="true">1</span>
+    </button>
+
+    <!-- Развёрнутое состояние: окно чата -->
+    <div class="chat-widget__window" role="dialog" aria-labelledby="chatWidgetTitle">
+
+      <header class="chat-widget__header">
+        <span class="chat-widget__avatar" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 18h20"/>
+            <path d="M5 18a7 7 0 0 1 14 0"/>
+            <path d="M12 11V5a2 2 0 0 1 4 0"/>
+            <line x1="12" y1="2" x2="12" y2="4"/>
+          </svg>
+        </span>
+        <div class="chat-widget__user">
+          <span class="chat-widget__user-name" id="chatWidgetTitle">Анна Смирнова</span>
+          <span class="chat-widget__user-role">
+            <span class="chat-widget__online-dot" aria-hidden="true"></span>
+            Главный инженер · онлайн
+          </span>
+        </div>
+        <button type="button" class="chat-widget__close" id="chatClose" aria-label="Закрыть чат">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </header>
+
+      <div class="chat-widget__body">
+        <div class="chat-widget__msg">
+          <div class="chat-widget__msg-bubble">Здравствуйте! 👋 Меня зовут Анна, я главный инженер <strong>СК&nbsp;ВЕКТОР</strong>.</div>
+          <span class="chat-widget__msg-time">только&nbsp;что</span>
+        </div>
+        <div class="chat-widget__msg">
+          <div class="chat-widget__msg-bubble">Расскажите коротко о&nbsp;вашем проекте — отвечу в&nbsp;течение 5&nbsp;минут в&nbsp;рабочее время и&nbsp;подготовлю предварительный расчёт.</div>
+          <span class="chat-widget__msg-time">только&nbsp;что</span>
+        </div>
+      </div>
+
+      <form class="chat-widget__form" id="chatForm" novalidate>
+        <input type="tel" name="phone" placeholder="Ваш телефон" required />
+        <textarea name="message" placeholder="Опишите ваш объект: тип, площадь, регион..." rows="2"></textarea>
+        <button type="submit" class="chat-widget__send">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          Отправить инженеру
+        </button>
+        <p class="chat-widget__disclaimer">
+          Нажимая «Отправить», вы&nbsp;соглашаетесь с&nbsp;<a href="#privacy">политикой конфиденциальности</a>
+        </p>
+      </form>
+
+      <div class="chat-widget__success">
+        <div class="chat-widget__success-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h4 class="chat-widget__success-title">Сообщение отправлено!</h4>
+        <p class="chat-widget__success-text">Анна получила ваше сообщение и&nbsp;ответит в&nbsp;течение 5&nbsp;минут в&nbsp;рабочее время.</p>
+      </div>
+
+    </div>
+  </div>
+
   <script src="scripts/main.js" defer></script>
 </body>
 </html>

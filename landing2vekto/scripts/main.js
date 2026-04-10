@@ -172,6 +172,51 @@
     }
   });
 
+  /* ============================================================
+     CHAT WIDGET
+     ============================================================ */
+  const chatWidget = document.getElementById('chatWidget');
+  if (chatWidget) {
+    const toggleBtn = chatWidget.querySelector('#chatToggle');
+    const closeBtn = chatWidget.querySelector('#chatClose');
+    const form = chatWidget.querySelector('#chatForm');
+    const badge = chatWidget.querySelector('.chat-widget__badge');
+
+    const open = () => {
+      chatWidget.classList.add('is-open');
+      if (toggleBtn) toggleBtn.setAttribute('aria-expanded', 'true');
+      if (badge) badge.style.display = 'none';
+    };
+
+    const close = () => {
+      chatWidget.classList.remove('is-open');
+      if (toggleBtn) toggleBtn.setAttribute('aria-expanded', 'false');
+    };
+
+    if (toggleBtn) toggleBtn.addEventListener('click', open);
+    if (closeBtn) closeBtn.addEventListener('click', close);
+
+    /* Закрытие по Esc */
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && chatWidget.classList.contains('is-open')) close();
+    });
+
+    /* Submit */
+    if (form) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const data = Object.fromEntries(new FormData(form).entries());
+        if (!data.phone || data.phone.trim().length < 5) {
+          form.querySelector('input[name="phone"]').focus();
+          return;
+        }
+        console.log('Chat widget submission:', data);
+        chatWidget.classList.add('is-sent');
+        form.reset();
+      });
+    }
+  }
+
   /* ── Active nav highlight ── */
   const navLinks = document.querySelectorAll('.nav__link');
   if (navLinks.length && 'IntersectionObserver' in window) {
