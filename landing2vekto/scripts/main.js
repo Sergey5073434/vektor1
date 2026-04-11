@@ -250,6 +250,12 @@
     const form = chatWidget.querySelector('#chatForm');
     const badge = chatWidget.querySelector('.chat-widget__badge');
 
+    /* Виджет скрыт первые 15 секунд после загрузки страницы */
+    chatWidget.classList.add('is-pending');
+    setTimeout(() => {
+      chatWidget.classList.remove('is-pending');
+    }, 15000);
+
     const open = () => {
       chatWidget.classList.add('is-open');
       if (toggleBtn) toggleBtn.setAttribute('aria-expanded', 'true');
