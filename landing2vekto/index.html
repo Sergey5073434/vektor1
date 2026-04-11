@@ -23,12 +23,23 @@
 
       <a href="#top" class="logo" aria-label="СК ВЕКТОР — на главную">
         <span class="logo__mark" aria-hidden="true">
-          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M8 8L20 32L32 8" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <circle cx="32" cy="8" r="2.5" fill="currentColor"/>
+          <svg viewBox="0 0 64 40" xmlns="http://www.w3.org/2000/svg" fill="none">
+            <defs>
+              <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#5B7BFF"/>
+                <stop offset="55%" stop-color="#2840BD"/>
+                <stop offset="100%" stop-color="#1A2D8F"/>
+              </linearGradient>
+            </defs>
+            <path d="M4 30 L13 8 L22 30 L31 8 L40 30 L49 8 L58 30"
+                  stroke="url(#logoGrad)" stroke-width="6"
+                  stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </span>
-        <span class="logo__text">ВЕКТОР</span>
+        <span class="logo__text">
+          <span class="logo__sub">СК</span>
+          ВЕКТОР
+        </span>
       </a>
 
       <nav class="nav" aria-label="Главное меню">
@@ -1019,8 +1030,24 @@
 
         <div class="footer__brand">
           <a href="#top" class="logo">
-            <span class="logo__mark">В</span>
-            <span class="logo__text">ВЕКТОР</span>
+            <span class="logo__mark" aria-hidden="true">
+              <svg viewBox="0 0 64 40" xmlns="http://www.w3.org/2000/svg" fill="none">
+                <defs>
+                  <linearGradient id="logoGradFooter" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#5B7BFF"/>
+                    <stop offset="55%" stop-color="#2840BD"/>
+                    <stop offset="100%" stop-color="#1A2D8F"/>
+                  </linearGradient>
+                </defs>
+                <path d="M4 30 L13 8 L22 30 L31 8 L40 30 L49 8 L58 30"
+                      stroke="url(#logoGradFooter)" stroke-width="6"
+                      stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <span class="logo__text">
+              <span class="logo__sub">СК</span>
+              ВЕКТОР
+            </span>
           </a>
           <p class="footer__tagline">Строительство современных зданий под&nbsp;ключ за&nbsp;90&nbsp;дней</p>
           <ul class="footer__stats">

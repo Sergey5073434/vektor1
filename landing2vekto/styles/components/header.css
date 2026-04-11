@@ -26,6 +26,10 @@
   color: var(--text-inv);
 }
 
+.header .logo__sub {
+  color: color-mix(in srgb, var(--text-inv) 65%, transparent);
+}
+
 .header .nav__link:hover,
 .header .header__phone:hover {
   color: var(--accent);
@@ -64,6 +68,10 @@
   color: var(--text);
 }
 
+.header.is-scrolled .logo__sub {
+  color: var(--text-muted);
+}
+
 .header.is-scrolled .messenger {
   background: var(--bg-card);
   border-color: var(--border);
@@ -95,49 +103,64 @@
 .logo {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-2);
+  gap: var(--space-3);
   font-family: 'Fraunces', serif;
-  font-weight: 900;
-  font-size: 1.5rem;
-  letter-spacing: -0.03em;
+  font-weight: 800;
+  font-size: 1.375rem;
+  line-height: 1;
+  letter-spacing: -0.025em;
   color: var(--text);
   font-variation-settings: 'SOFT' 20, 'opsz' 96;
   transition: color var(--t-base);
+  white-space: nowrap;
 }
 
+/* Знак-волна (SVG-логотип) */
 .logo__mark {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
-  background: var(--accent);
-  color: var(--bg);
-  border-radius: var(--radius-md);
-  transition: transform var(--t-base), background var(--t-base);
+  width: 56px;
+  height: 36px;
+  flex-shrink: 0;
+  transition: transform var(--t-base);
+  filter: drop-shadow(0 2px 6px rgba(40, 64, 189, 0.15));
 }
 
 .logo__mark svg {
-  width: 60%;
-  height: 60%;
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
 .logo:hover .logo__mark {
-  background: var(--accent-hot);
-  transform: rotate(-6deg);
+  transform: translateX(2px);
 }
 
+/* Текст «СК ВЕКТОР» */
 .logo__text {
   display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1px;
+  line-height: 0.95;
+}
+
+.logo__sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-muted);
 }
 
 @media (min-width: 480px) {
-  .logo__text { display: inline; }
+  .logo__text { display: inline-flex; }
 }
 
-.logo:hover {
-  color: var(--accent);
-}
+.logo:hover { color: var(--accent); }
+.logo:hover .logo__sub { color: var(--accent); }
 
 /* ── Nav ── */
 .nav {
