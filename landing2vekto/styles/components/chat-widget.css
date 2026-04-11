@@ -9,9 +9,18 @@
   z-index: 90;
   font-family: 'Inter', sans-serif;
   pointer-events: none;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+              opacity 0.3s ease;
 }
 
 .chat-widget > * { pointer-events: auto; }
+
+/* Скрытие при скролле вниз (мобила) */
+.chat-widget.is-hidden {
+  transform: translateY(140%);
+  opacity: 0;
+  pointer-events: none;
+}
 
 /* ── Toggle button (свёрнутое состояние) ── */
 .chat-widget__toggle {
@@ -109,9 +118,28 @@
   color: var(--text-muted);
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
+  .chat-widget {
+    right: 0.875rem;
+    bottom: 0.875rem;
+  }
   .chat-widget__toggle-text { display: none; }
   .chat-widget__toggle { padding: 0.5rem; }
+  .chat-widget__avatar { width: 48px; height: 48px; }
+  .chat-widget__badge {
+    top: -2px;
+    right: -2px;
+    min-width: 18px;
+    height: 18px;
+  }
+}
+
+/* На совсем узких — отступ от края меньше, чтобы не зацепить кнопки */
+@media (max-width: 480px) {
+  .chat-widget {
+    right: 0.625rem;
+    bottom: 0.625rem;
+  }
 }
 
 /* Бейдж непрочитанных */
