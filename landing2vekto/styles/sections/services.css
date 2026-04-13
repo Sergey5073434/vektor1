@@ -8,16 +8,14 @@
 
 .services__grid {
   display: grid;
-  gap: var(--space-4);
+  gap: var(--space-5);
   grid-template-columns: 1fr;
+  max-width: 1120px;
+  margin-inline: auto;
 }
 
 @media (min-width: 640px) {
   .services__grid { grid-template-columns: repeat(2, 1fr); }
-}
-
-@media (min-width: 1024px) {
-  .services__grid { grid-template-columns: repeat(3, 1fr); }
 }
 
 .service-card {
