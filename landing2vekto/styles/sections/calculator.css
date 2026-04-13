@@ -3,7 +3,7 @@
    ============================================================ */
 
 .calculator {
-  background: var(--bg);
+  background: var(--bg-muted);
   position: relative;
   overflow: hidden;
 }

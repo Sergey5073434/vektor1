@@ -3,7 +3,7 @@
    ============================================================ */
 
 .construction {
-  background: var(--bg-muted);
+  background: var(--bg);
 }
 
 .construction__grid {

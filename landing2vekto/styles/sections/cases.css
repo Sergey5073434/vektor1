@@ -3,7 +3,7 @@
    ============================================================ */
 
 .cases {
-  background: var(--bg);
+  background: var(--bg-muted);
 }
 
 .cases__head {

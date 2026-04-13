@@ -16,7 +16,6 @@
 /* ── Sections ── */
 @import url('./sections/hero.css');
 @import url('./sections/services.css');
-@import url('./sections/stats.css');
 @import url('./sections/calculator.css');
 @import url('./sections/process.css');
 @import url('./sections/cases.css');

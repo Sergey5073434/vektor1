@@ -3,7 +3,7 @@
    ============================================================ */
 
 .reviews {
-  background: var(--bg);
+  background: var(--bg-muted);
 }
 
 .reviews__inner {
