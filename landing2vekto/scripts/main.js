@@ -250,20 +250,37 @@
     const form = chatWidget.querySelector('#chatForm');
     const badge = chatWidget.querySelector('.chat-widget__badge');
 
-    /* Виджет скрыт первые 15 секунд после загрузки страницы */
-    chatWidget.classList.add('is-pending');
-    setTimeout(() => {
-      chatWidget.classList.remove('is-pending');
-    }, 15000);
+    /* Если пользователь уже закрывал виджет — не показывать в этой сессии */
+    const DISMISS_KEY = 'vektor_chat_dismissed';
+    const isDismissed = () => {
+      try { return sessionStorage.getItem(DISMISS_KEY) === '1'; } catch (_) { return false; }
+    };
+    const setDismissed = () => {
+      try { sessionStorage.setItem(DISMISS_KEY, '1'); } catch (_) {}
+    };
+
+    if (isDismissed()) {
+      chatWidget.classList.add('is-dismissed');
+    } else {
+      /* Виджет скрыт первые 15 секунд после загрузки страницы */
+      chatWidget.classList.add('is-pending');
+      setTimeout(() => {
+        if (!isDismissed()) chatWidget.classList.remove('is-pending');
+      }, 15000);
+    }
 
     const open = () => {
       chatWidget.classList.add('is-open');
+      chatWidget.classList.remove('is-pending');
       if (toggleBtn) toggleBtn.setAttribute('aria-expanded', 'true');
       if (badge) badge.style.display = 'none';
     };
 
     const close = () => {
       chatWidget.classList.remove('is-open');
+      /* Полностью убираем виджет на время сессии */
+      chatWidget.classList.add('is-dismissed');
+      setDismissed();
       if (toggleBtn) toggleBtn.setAttribute('aria-expanded', 'false');
     };
 

@@ -29,6 +29,11 @@
   pointer-events: none;
 }
 
+/* Полное скрытие после закрытия пользователем (на время сессии) */
+.chat-widget.is-dismissed {
+  display: none !important;
+}
+
 /* ── Toggle button (свёрнутое состояние) ── */
 .chat-widget__toggle {
   display: inline-flex;
