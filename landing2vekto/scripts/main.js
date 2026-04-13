@@ -184,15 +184,12 @@
     const submitBtn = quiz.querySelector('#quizSubmit');
     if (submitBtn) {
       submitBtn.addEventListener('click', () => {
-        const inputs = quiz.querySelectorAll('.quiz__step[data-step="4"] .quiz__input');
-        const name = inputs[0]?.value.trim();
-        const phone = inputs[1]?.value.trim();
-        if (!name || !phone) {
-          if (!name) inputs[0]?.focus();
-          else inputs[1]?.focus();
+        const phoneInput = quiz.querySelector('.quiz__step[data-step="4"] .quiz__input');
+        const phone = phoneInput?.value.trim();
+        if (!phone || phone.length < 5) {
+          phoneInput?.focus();
           return;
         }
-        answers.name = name;
         answers.phone = phone;
 
         /* Расчёт цены */
@@ -250,24 +247,11 @@
     const form = chatWidget.querySelector('#chatForm');
     const badge = chatWidget.querySelector('.chat-widget__badge');
 
-    /* Если пользователь уже закрывал виджет — не показывать в этой сессии */
-    const DISMISS_KEY = 'vektor_chat_dismissed';
-    const isDismissed = () => {
-      try { return sessionStorage.getItem(DISMISS_KEY) === '1'; } catch (_) { return false; }
-    };
-    const setDismissed = () => {
-      try { sessionStorage.setItem(DISMISS_KEY, '1'); } catch (_) {}
-    };
-
-    if (isDismissed()) {
-      chatWidget.classList.add('is-dismissed');
-    } else {
-      /* Виджет скрыт первые 15 секунд после загрузки страницы */
-      chatWidget.classList.add('is-pending');
-      setTimeout(() => {
-        if (!isDismissed()) chatWidget.classList.remove('is-pending');
-      }, 15000);
-    }
+    /* Виджет скрыт первые 15 секунд после загрузки страницы */
+    chatWidget.classList.add('is-pending');
+    setTimeout(() => {
+      chatWidget.classList.remove('is-pending');
+    }, 15000);
 
     const open = () => {
       chatWidget.classList.add('is-open');
@@ -278,9 +262,6 @@
 
     const close = () => {
       chatWidget.classList.remove('is-open');
-      /* Полностью убираем виджет на время сессии */
-      chatWidget.classList.add('is-dismissed');
-      setDismissed();
       if (toggleBtn) toggleBtn.setAttribute('aria-expanded', 'false');
     };
 
