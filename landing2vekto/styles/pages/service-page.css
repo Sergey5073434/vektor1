@@ -1,0 +1,418 @@
+/* ============================================================
+   Service subpages — rental / warehouse / industrial / agro
+   ============================================================ */
+
+.service-page {
+  padding-top: var(--header-h);
+}
+
+/* ── HERO ── */
+.service-hero {
+  position: relative;
+  padding: clamp(3rem, 5vw + 1rem, 6rem) 0 clamp(3rem, 5vw, 5rem);
+  background: var(--bg);
+  overflow: hidden;
+}
+
+.service-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 40% at 80% 10%,
+    color-mix(in srgb, var(--accent) 10%, transparent) 0%,
+    transparent 70%);
+  pointer-events: none;
+}
+
+.service-hero > .container { position: relative; }
+
+.service-hero__back {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-bottom: var(--space-6);
+  transition: color var(--t-base);
+}
+
+.service-hero__back:hover { color: var(--accent); }
+.service-hero__back svg { width: 16px; height: 16px; }
+
+.service-hero__inner {
+  display: grid;
+  gap: clamp(2rem, 4vw, 4rem);
+  grid-template-columns: 1fr;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .service-hero__inner { grid-template-columns: 1fr 1fr; }
+}
+
+.service-hero__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0.4rem 0.875rem;
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-5);
+}
+
+.service-hero__tag svg { width: 14px; height: 14px; }
+
+.service-hero__title {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2.25rem, 1.2rem + 4vw, 4rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.035em;
+  color: var(--text);
+  margin-bottom: var(--space-5);
+  font-variation-settings: 'SOFT' 20, 'opsz' 144;
+}
+
+.service-hero__title em {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 500;
+  color: var(--accent);
+  font-variation-settings: 'SOFT' 100, 'opsz' 144;
+}
+
+.service-hero__lead {
+  font-size: clamp(1rem, 0.9rem + 0.4vw, 1.125rem);
+  line-height: 1.55;
+  color: var(--text-muted);
+  max-width: 50ch;
+  margin-bottom: var(--space-7);
+}
+
+.service-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin-bottom: var(--space-7);
+}
+
+.service-hero__metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-5);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--border);
+}
+
+.service-hero__metric {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.service-hero__metric-label {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+}
+
+.service-hero__metric-value {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(1.5rem, 0.9rem + 1.5vw, 2rem);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--text);
+  letter-spacing: -0.025em;
+  font-variation-settings: 'SOFT' 20, 'opsz' 96;
+}
+
+.service-hero__media {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+  background: var(--bg-muted);
+  box-shadow: 0 30px 60px -20px rgba(22, 24, 29, 0.25);
+}
+
+.service-hero__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s cubic-bezier(.22,1,.36,1);
+}
+
+.service-hero__media:hover img { transform: scale(1.04); }
+
+.service-hero__media-caption {
+  position: absolute;
+  left: var(--space-5);
+  bottom: var(--space-5);
+  padding: var(--space-3) var(--space-4);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  border-radius: var(--radius-md);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+/* ── WHAT INCLUDED (что входит) ── */
+.service-included {
+  padding: clamp(4rem, 5vw + 1rem, 7rem) 0;
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+}
+
+.service-included__inner {
+  display: grid;
+  gap: clamp(2rem, 4vw, 4rem);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 1024px) {
+  .service-included__inner { grid-template-columns: 0.85fr 1.15fr; }
+}
+
+.service-included__head h2 {
+  margin-bottom: var(--space-4);
+}
+
+.service-included__list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+}
+
+@media (min-width: 640px) {
+  .service-included__list { grid-template-columns: repeat(2, 1fr); }
+}
+
+.service-included__item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  transition: all var(--t-base);
+}
+
+.service-included__item:hover {
+  border-color: color-mix(in srgb, var(--accent) 30%, var(--border));
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.service-included__icon {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+  color: var(--accent);
+  border-radius: var(--radius-sm);
+}
+
+.service-included__icon svg { width: 16px; height: 16px; }
+
+.service-included__text {
+  flex: 1;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+
+.service-included__text strong {
+  display: block;
+  color: var(--text);
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.service-included__text span { color: var(--text-muted); }
+
+/* ── AUDIENCE (кому подходит) ── */
+.service-audience {
+  background: var(--bg-muted);
+  padding: clamp(4rem, 5vw + 1rem, 7rem) 0;
+}
+
+.service-audience__grid {
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+}
+
+.service-audience__card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  transition: all var(--t-base);
+}
+
+.service-audience__card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.service-audience__card-icon {
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+  color: var(--accent);
+  border-radius: var(--radius-md);
+}
+
+.service-audience__card-icon svg { width: 22px; height: 22px; }
+
+.service-audience__card-title {
+  font-family: 'Fraunces', serif;
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+
+.service-audience__card-desc {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+/* ── CTA BANNER ── */
+.service-cta-banner {
+  position: relative;
+  padding: clamp(4rem, 6vw + 1rem, 7rem) 0;
+  background: var(--bg-accent);
+  color: var(--text-inv);
+  text-align: center;
+  overflow: hidden;
+}
+
+.service-cta-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 50% at 50% 0%,
+    color-mix(in srgb, var(--accent) 30%, transparent) 0%,
+    transparent 65%);
+  pointer-events: none;
+}
+
+.service-cta-banner > .container {
+  position: relative;
+  max-width: 720px;
+}
+
+.service-cta-banner__title {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2rem, 1.2rem + 2.5vw, 3rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  color: var(--text-inv);
+  margin-bottom: var(--space-4);
+  font-variation-settings: 'SOFT' 30, 'opsz' 120;
+}
+
+.service-cta-banner__title em {
+  font-style: italic;
+  color: var(--accent);
+  font-variation-settings: 'SOFT' 100, 'opsz' 144;
+}
+
+.service-cta-banner__lead {
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  color: color-mix(in srgb, var(--text-inv) 75%, transparent);
+  margin-bottom: var(--space-7);
+}
+
+.service-cta-banner__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  justify-content: center;
+}
+
+.service-cta-banner .btn--secondary {
+  --btn-bg: transparent;
+  --btn-color: var(--text-inv);
+  --btn-border: rgba(255, 255, 255, 0.3);
+}
+
+.service-cta-banner .btn--secondary:hover {
+  --btn-bg: var(--text-inv);
+  --btn-color: var(--text);
+  --btn-border: var(--text-inv);
+}
+
+/* ── Simple footer for subpages ── */
+.service-footer {
+  padding: var(--space-7) 0;
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+  text-align: center;
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+.service-footer a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* Clickable service card в index */
+a.service-card {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+a.service-card:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.service-card__cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-top: var(--space-3);
+  padding-top: var(--space-3);
+  border-top: 1px dashed var(--border);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--accent);
+}
+
+.service-card__cta svg {
+  width: 16px;
+  height: 16px;
+  transition: transform var(--t-base);
+}
+
+a.service-card:hover .service-card__cta svg {
+  transform: translateX(4px);
+}

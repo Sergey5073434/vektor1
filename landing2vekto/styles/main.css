@@ -25,3 +25,6 @@
 @import url('./sections/faq.css');
 @import url('./sections/cta.css');
 @import url('./sections/footer.css');
+
+/* ── Pages ── */
+@import url('./pages/service-page.css');
