@@ -189,9 +189,10 @@
                 <svg class="btn__icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
               </button>
 
-              <p class="hero__form-disclaimer">
-                Нажимая на кнопку, вы соглашаетесь с <a href="#privacy">политикой конфиденциальности</a>.
-              </p>
+              <label class="consent">
+                <input type="checkbox" required />
+                <span>Даю согласие на обработку персональных данных в&nbsp;соответствии с&nbsp;<a href="privacy.html" target="_blank">политикой конфиденциальности</a></span>
+              </label>
             </form>
 
             <div class="hero__bonus">
@@ -214,7 +215,7 @@
         <div class="section__head">
           <p class="overline">Наши специализации</p>
           <h2 class="section__title h2">Что мы строим под&nbsp;<em class="italic-accent">ключ</em></h2>
-          <p class="lead">Четыре направления, в которых ВЕКТОР работает каждый день. Все объекты — с фиксированной ценой и гарантией 5&nbsp;лет.</p>
+          <p class="lead">Четыре направления, в которых ВЕКТОР работает каждый день. Все объекты — с фиксированной ценой и гарантией 5&nbsp;лет. <span style="font-size:0.8125rem;color:var(--text-muted);">Цены указаны без&nbsp;НДС.</span></p>
         </div>
 
         <div class="services__grid">
@@ -398,9 +399,10 @@
                   Узнать предварительную цену
                   <svg class="btn__icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
                 </button>
-                <p style="font-size:.75rem;color:var(--text-muted);line-height:1.5;">
-                  Нажимая на кнопку, вы соглашаетесь с <a href="#privacy" style="color:var(--accent);text-decoration:underline;">политикой конфиденциальности</a>.
-                </p>
+                <label class="consent">
+                  <input type="checkbox" id="quizConsent" />
+                  <span>Даю согласие на обработку персональных данных в&nbsp;соответствии с&nbsp;<a href="privacy.html" target="_blank">политикой конфиденциальности</a></span>
+                </label>
               </div>
             </div>
 
@@ -788,11 +790,11 @@
               <div class="review__quote-mark">«</div>
               <p class="review__text">Сроки и&nbsp;бюджет — два главных страха в&nbsp;стройке. С&nbsp;ВЕКТОРОМ мы&nbsp;получили фиксированную цену в&nbsp;договоре, и&nbsp;за&nbsp;весь проект она не&nbsp;сдвинулась ни&nbsp;на&nbsp;рубль. Производственно-складской комплекс с&nbsp;АБК сдали в&nbsp;плановый срок.</p>
               <div class="review__author">
-                <div class="review__avatar"><img src="assets/images/review-client-1.png" alt="Дмитрий Соколов" loading="lazy" /></div>
+                <div class="review__avatar">ДС</div>
                 <div class="review__author-info">
-                  <span class="review__author-name">Дмитрий Соколов</span>
-                  <span class="review__author-role">Директор по&nbsp;производству, ООО «Нева Металл Посуда»</span>
-                  <span class="review__object">Объект 4 200 м², пр.&nbsp;Маршала Блюхера 78</span>
+                  <span class="review__author-name">Дмитрий С.</span>
+                  <span class="review__author-role">Директор по&nbsp;производству, производитель посуды, СПб</span>
+                  <span class="review__object">Объект 4 200 м², СПб</span>
                 </div>
               </div>
             </article>
@@ -801,11 +803,11 @@
               <div class="review__quote-mark">«</div>
               <p class="review__text">Выбирали подрядчика для нового склада долго — общались с&nbsp;шестью компаниями. С&nbsp;ВЕКТОРОМ подкупила прозрачность: главный инженер сразу разложил, из&nbsp;чего складывается цена. Каждые три дня прилетал фотоотчёт в&nbsp;Telegram.</p>
               <div class="review__author">
-                <div class="review__avatar"><img src="assets/images/review-client-2.png" alt="Андрей Кириллов" loading="lazy" /></div>
+                <div class="review__avatar">АК</div>
                 <div class="review__author-info">
-                  <span class="review__author-name">Андрей Кириллов</span>
-                  <span class="review__author-role">Генеральный директор</span>
-                  <span class="review__object">Логистический склад 6 000 м², Ленобласть</span>
+                  <span class="review__author-name">Андрей К.</span>
+                  <span class="review__author-role">Генеральный директор, логистическая компания</span>
+                  <span class="review__object">Склад 6 000 м², Ленинградская область</span>
                 </div>
               </div>
             </article>
@@ -816,9 +818,9 @@
               <div class="review__author">
                 <div class="review__avatar">ТЛ</div>
                 <div class="review__author-info">
-                  <span class="review__author-name">Татьяна Лебедева</span>
-                  <span class="review__author-role">Зам.&nbsp;генерального директора</span>
-                  <span class="review__object">Объект 3 500 м², ОЭЗ «Новороловская»</span>
+                  <span class="review__author-name">Татьяна Л.</span>
+                  <span class="review__author-role">Зам.&nbsp;генерального директора, резидент ОЭЗ</span>
+                  <span class="review__object">Объект 3 500 м², Ленинградская область</span>
                 </div>
               </div>
             </article>
@@ -829,9 +831,9 @@
               <div class="review__author">
                 <div class="review__avatar">СБ</div>
                 <div class="review__author-info">
-                  <span class="review__author-name">Сергей Беннуа</span>
-                  <span class="review__author-role">Собственник, ООО «Бенуа»</span>
-                  <span class="review__object">Производственное здание ЛСТК, повторный заказ</span>
+                  <span class="review__author-name">Сергей Б.</span>
+                  <span class="review__author-role">Собственник, производственная компания</span>
+                  <span class="review__object">Здание ЛСТК, Ленинградская область, повторный заказ</span>
                 </div>
               </div>
             </article>
@@ -977,9 +979,10 @@
                 <svg class="btn__icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
               </button>
 
-              <p class="final-cta__form-disclaimer">
-                Нажимая на&nbsp;кнопку, вы&nbsp;соглашаетесь с&nbsp;<a href="#privacy">политикой конфиденциальности</a>. Не&nbsp;передаём контакты третьим лицам.
-              </p>
+              <label class="consent" style="color: color-mix(in srgb, var(--text-inv) 55%, transparent);">
+                <input type="checkbox" required />
+                <span>Даю согласие на обработку персональных данных в&nbsp;соответствии с&nbsp;<a href="privacy.html" target="_blank" style="color:var(--accent);">политикой конфиденциальности</a></span>
+              </label>
             </form>
           </div>
 
@@ -1091,6 +1094,7 @@
       </div>
 
       <p class="footer__company">ООО «СК «ВЕКТОР» · ИНН&nbsp;7801700536 · ОГРН&nbsp;1217800094027 · Юр.&nbsp;адрес: 199155, Санкт-Петербург, ул.&nbsp;Уральская, д.&nbsp;10, к.&nbsp;1, лит.&nbsp;А, пом.&nbsp;403 · Ген.&nbsp;директор: Журавлева Татьяна Борисовна</p>
+      <p class="footer__company" style="margin-top:0.5rem;">Цены на&nbsp;сайте указаны без&nbsp;НДС и&nbsp;носят информационный характер, не&nbsp;являются публичной офертой (ст.&nbsp;437 ГК&nbsp;РФ). Условия FPC-контракта, размер штрафных санкций и&nbsp;гарантийные обязательства определяются индивидуальным договором подряда.</p>
 
     </div>
   </footer>
@@ -1144,6 +1148,10 @@
 
       <form class="chat-widget__form" id="chatForm" novalidate>
         <input type="tel" name="phone" placeholder="Ваш телефон" required />
+        <label class="consent" style="font-size:0.6875rem;">
+          <input type="checkbox" required />
+          <span>Согласен с&nbsp;<a href="privacy.html" target="_blank">политикой&nbsp;конфиденциальности</a></span>
+        </label>
         <button type="submit" class="chat-widget__send">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
           Отправить

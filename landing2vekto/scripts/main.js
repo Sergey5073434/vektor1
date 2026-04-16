@@ -185,9 +185,14 @@
     if (submitBtn) {
       submitBtn.addEventListener('click', () => {
         const phoneInput = quiz.querySelector('.quiz__step[data-step="4"] .quiz__input');
+        const consentCb = quiz.querySelector('#quizConsent');
         const phone = phoneInput?.value.trim();
         if (!phone || phone.length < 5) {
           phoneInput?.focus();
+          return;
+        }
+        if (consentCb && !consentCb.checked) {
+          consentCb.focus();
           return;
         }
         answers.phone = phone;
