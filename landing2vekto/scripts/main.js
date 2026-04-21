@@ -347,4 +347,22 @@
     sections.forEach((s) => navIO.observe(s));
   }
 
+  /* ─────────── Service form (страницы услуг) ─────────── */
+  const serviceForm = document.getElementById('serviceForm');
+  const serviceFormSuccess = document.getElementById('serviceFormSuccess');
+  if (serviceForm && serviceFormSuccess) {
+    serviceForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(serviceForm).entries());
+      if (!data.phone || data.phone.trim().length < 5) {
+        serviceForm.querySelector('input[name="phone"]').focus();
+        return;
+      }
+      console.log('Service form submission:', data);
+      serviceForm.style.display = 'none';
+      serviceFormSuccess.classList.add('show');
+      serviceFormSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+  }
+
 })();

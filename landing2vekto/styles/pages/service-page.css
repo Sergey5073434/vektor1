@@ -382,6 +382,204 @@
   text-underline-offset: 2px;
 }
 
+/* ── SERVICE FORM SECTION ── */
+.service-form-section {
+  position: relative;
+  padding: clamp(4rem, 6vw + 1rem, 7rem) 0;
+  background: var(--bg-accent);
+  color: var(--text-inv);
+  overflow: hidden;
+}
+
+.service-form-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 50% at 50% 0%,
+    color-mix(in srgb, var(--accent) 30%, transparent) 0%,
+    transparent 65%);
+  pointer-events: none;
+}
+
+.service-form-section > .container {
+  position: relative;
+  z-index: 1;
+}
+
+.service-form__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2.5rem, 4vw, 5rem);
+  align-items: start;
+}
+
+.service-form__intro .overline {
+  color: var(--accent);
+  margin-bottom: var(--space-3);
+}
+
+.service-form__title {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2rem, 1.2rem + 2vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  color: var(--text-inv);
+  margin-bottom: var(--space-4);
+  font-variation-settings: 'SOFT' 30, 'opsz' 120;
+}
+
+.service-form__title em {
+  font-style: italic;
+  color: var(--accent);
+  font-variation-settings: 'SOFT' 100, 'opsz' 144;
+}
+
+.service-form__lead {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: color-mix(in srgb, var(--text-inv) 70%, transparent);
+  margin-bottom: var(--space-5);
+}
+
+.service-form__benefits {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.service-form__benefits li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: 0.95rem;
+  color: color-mix(in srgb, var(--text-inv) 80%, transparent);
+}
+
+.service-form__benefits svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  color: var(--accent);
+}
+
+.service-form__form {
+  background: color-mix(in srgb, var(--text-inv) 5%, transparent);
+  border: 1px solid color-mix(in srgb, var(--text-inv) 12%, transparent);
+  padding: clamp(1.75rem, 2.5vw, 2.5rem);
+  border-radius: 8px;
+}
+
+.service-form__field {
+  margin-bottom: var(--space-4);
+}
+
+.service-form__field label {
+  display: block;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: color-mix(in srgb, var(--text-inv) 60%, transparent);
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.service-form__field input {
+  width: 100%;
+  padding: 0.95rem 1.1rem;
+  background: color-mix(in srgb, var(--text-inv) 5%, transparent);
+  border: 1px solid color-mix(in srgb, var(--text-inv) 15%, transparent);
+  color: var(--text-inv);
+  font-family: inherit;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+  border-radius: 4px;
+}
+
+.service-form__field input::placeholder {
+  color: color-mix(in srgb, var(--text-inv) 35%, transparent);
+}
+
+.service-form__field input:focus {
+  border-color: var(--accent);
+}
+
+.service-form__submit {
+  width: 100%;
+  justify-content: center;
+  margin-top: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+
+.service-form__form .consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  font-size: 0.78rem;
+  color: color-mix(in srgb, var(--text-inv) 55%, transparent);
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.service-form__form .consent input[type="checkbox"] {
+  margin-top: 0.2rem;
+  flex-shrink: 0;
+  accent-color: var(--accent);
+}
+
+.service-form__form .consent a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.service-form__success {
+  display: none;
+  text-align: center;
+  padding: var(--space-7) var(--space-5);
+  background: color-mix(in srgb, var(--text-inv) 5%, transparent);
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+}
+
+.service-form__success.show {
+  display: block;
+  animation: fadeInUp 0.4s ease;
+}
+
+.service-form__success svg {
+  width: 48px;
+  height: 48px;
+  color: var(--accent);
+  margin: 0 auto var(--space-3);
+  display: block;
+}
+
+.service-form__success h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 1.5rem;
+  color: var(--text-inv);
+  margin-bottom: 0.5rem;
+}
+
+.service-form__success p {
+  font-size: 0.95rem;
+  color: color-mix(in srgb, var(--text-inv) 70%, transparent);
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+  .service-form__inner { grid-template-columns: 1fr; gap: var(--space-6); }
+}
+
 /* Clickable service card в index */
 a.service-card {
   text-decoration: none;
