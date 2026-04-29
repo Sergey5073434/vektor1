@@ -1,0 +1,120 @@
+/* ============================================================
+   Buttons
+   ============================================================ */
+
+.btn {
+  --btn-bg: var(--accent);
+  --btn-color: var(--bg);
+  --btn-border: var(--accent);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  padding: 1rem 2rem;
+  min-height: 52px;
+  border-radius: var(--radius-md);
+  background: var(--btn-bg);
+  color: var(--btn-color);
+  border: 1px solid var(--btn-border);
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  line-height: 1;
+  text-align: center;
+  cursor: pointer;
+  transition:
+    transform var(--t-base),
+    box-shadow var(--t-base),
+    background var(--t-base),
+    color var(--t-base),
+    border-color var(--t-base);
+  white-space: nowrap;
+}
+
+.btn:hover {
+  background: var(--accent-hot);
+  border-color: var(--accent-hot);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-accent);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn__icon {
+  display: inline-flex;
+  transition: transform var(--t-base);
+}
+
+.btn:hover .btn__icon {
+  transform: translateX(4px);
+}
+
+/* ── Secondary: outline ── */
+.btn--secondary {
+  --btn-bg: transparent;
+  --btn-color: var(--text);
+  --btn-border: var(--text);
+}
+
+.btn--secondary:hover {
+  --btn-bg: var(--text);
+  --btn-color: var(--bg);
+  --btn-border: var(--text);
+  box-shadow: var(--shadow-md);
+}
+
+/* ── Ghost: только текст ── */
+.btn--ghost {
+  --btn-bg: transparent;
+  --btn-color: var(--text);
+  --btn-border: transparent;
+  padding: 0.75rem 1rem;
+  min-height: auto;
+}
+
+.btn--ghost:hover {
+  --btn-bg: transparent;
+  --btn-border: transparent;
+  transform: none;
+  box-shadow: none;
+  color: var(--accent);
+}
+
+/* ── Inversed (на тёмном фоне) ── */
+.btn--inv {
+  --btn-bg: var(--bg);
+  --btn-color: var(--text);
+  --btn-border: var(--bg);
+}
+
+.btn--inv:hover {
+  --btn-bg: var(--accent);
+  --btn-color: var(--bg);
+  --btn-border: var(--accent);
+}
+
+/* ── Sizes ── */
+.btn--lg {
+  padding: 1.125rem 2.5rem;
+  min-height: 60px;
+  font-size: 1.0625rem;
+}
+
+.btn--sm {
+  padding: 0.625rem 1.25rem;
+  min-height: 40px;
+  font-size: 0.875rem;
+}
+
+/* ── Icon button (квадратная) ── */
+.btn--icon {
+  width: 44px;
+  height: 44px;
+  min-height: 0;
+  padding: 0;
+  border-radius: var(--radius-md);
+}

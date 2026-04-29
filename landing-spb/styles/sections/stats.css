@@ -1,0 +1,153 @@
+/* ============================================================
+   Stats Section — Цифры-якоря («Почему ВЕКТОР»)
+   Bento-grid layout
+   ============================================================ */
+
+.stats {
+  background: var(--bg-accent);
+  color: var(--text-inv);
+  position: relative;
+  overflow: hidden;
+}
+
+.stats::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 50% at 20% 10%,
+      color-mix(in srgb, var(--accent) 25%, transparent) 0%,
+      transparent 65%),
+    radial-gradient(ellipse 60% 40% at 90% 90%,
+      color-mix(in srgb, var(--accent-warm) 18%, transparent) 0%,
+      transparent 65%);
+  pointer-events: none;
+}
+
+.stats > .container { position: relative; }
+
+.stats .section__head {
+  color: var(--text-inv);
+}
+
+.stats__title {
+  color: var(--text-inv);
+}
+
+.stats__lead {
+  color: var(--text-inv-muted);
+  max-width: 52ch;
+}
+
+/* ── Bento ── */
+.stats__bento {
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .stats__bento {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .stats__bento {
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-rows: minmax(180px, auto);
+  }
+
+  .stats__bento .stat-card:nth-child(1) {
+    grid-column: span 3;
+    grid-row: span 2;
+  }
+  .stats__bento .stat-card:nth-child(2) { grid-column: span 3; }
+  .stats__bento .stat-card:nth-child(3) { grid-column: span 3; }
+  .stats__bento .stat-card:nth-child(4) { grid-column: span 2; }
+  .stats__bento .stat-card:nth-child(5) { grid-column: span 2; }
+  .stats__bento .stat-card:nth-child(6) { grid-column: span 2; }
+}
+
+.stat-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--space-5);
+  padding: clamp(1.5rem, 2vw + 0.75rem, 2.25rem);
+  background: color-mix(in srgb, var(--bg-card) 5%, transparent);
+  border: 1px solid color-mix(in srgb, var(--text-inv) 12%, transparent);
+  border-radius: var(--radius-xl);
+  backdrop-filter: blur(8px);
+  transition: border-color var(--t-base), background var(--t-base);
+  overflow: hidden;
+}
+
+.stat-card:hover {
+  background: color-mix(in srgb, var(--bg-card) 8%, transparent);
+  border-color: color-mix(in srgb, var(--accent) 40%, transparent);
+}
+
+.stat-card--hero {
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
+  border-color: color-mix(in srgb, var(--accent) 35%, transparent);
+}
+
+.stat-card__overline {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: color-mix(in srgb, var(--text-inv) 60%, transparent);
+}
+
+.stat-card--hero .stat-card__overline {
+  color: color-mix(in srgb, var(--bg) 75%, transparent);
+}
+
+.stat-card__value {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(3rem, 2rem + 4vw, 5rem);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+  color: var(--text-inv);
+  font-variation-settings: 'SOFT' 20, 'opsz' 144;
+}
+
+.stat-card__value sup {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.3em;
+  font-weight: 600;
+  color: color-mix(in srgb, var(--text-inv) 70%, transparent);
+  margin-left: 0.15em;
+  vertical-align: super;
+  line-height: 0;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.stat-card--hero .stat-card__value {
+  font-size: clamp(4rem, 3rem + 5vw, 7rem);
+}
+
+.stat-card__label {
+  font-size: 1rem;
+  line-height: 1.4;
+  color: color-mix(in srgb, var(--text-inv) 80%, transparent);
+  max-width: 32ch;
+}
+
+.stat-card--hero .stat-card__label {
+  font-size: 1.125rem;
+  color: var(--text-inv);
+}
+
+.stat-card__desc {
+  font-size: 0.8125rem;
+  color: color-mix(in srgb, var(--text-inv) 55%, transparent);
+  max-width: 28ch;
+  padding-top: var(--space-4);
+  border-top: 1px solid color-mix(in srgb, var(--text-inv) 10%, transparent);
+}

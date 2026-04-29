@@ -1,0 +1,29 @@
+/* ============================================================
+   Main stylesheet — точка сборки.
+   ============================================================ */
+
+/* ── Base ── */
+@import url('./base/variables.css');
+@import url('./base/reset.css');
+@import url('./base/typography.css');
+@import url('./base/layout.css');
+
+/* ── Components ── */
+@import url('./components/buttons.css');
+@import url('./components/header.css');
+@import url('./components/chat-widget.css');
+
+/* ── Sections ── */
+@import url('./sections/hero.css');
+@import url('./sections/services.css');
+@import url('./sections/calculator.css');
+@import url('./sections/process.css');
+@import url('./sections/cases.css');
+@import url('./sections/construction.css');
+@import url('./sections/reviews.css');
+@import url('./sections/faq.css');
+@import url('./sections/cta.css');
+@import url('./sections/footer.css');
+
+/* ── Pages ── */
+@import url('./pages/service-page.css');

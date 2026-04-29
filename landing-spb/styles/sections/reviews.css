@@ -1,0 +1,226 @@
+/* ============================================================
+   Reviews Section — Отзывы + сертификаты
+   ============================================================ */
+
+.reviews {
+  background: var(--bg-muted);
+}
+
+.reviews__inner {
+  display: grid;
+  gap: clamp(2rem, 4vw, 4rem);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 1024px) {
+  .reviews__inner { grid-template-columns: 1.4fr 0.6fr; }
+}
+
+.reviews__list {
+  display: grid;
+  gap: var(--space-5);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .reviews__list { grid-template-columns: repeat(2, 1fr); }
+}
+
+.review {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: clamp(1.5rem, 2vw + 0.5rem, 2rem);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  transition: all var(--t-base);
+}
+
+.review:hover {
+  border-color: color-mix(in srgb, var(--accent) 30%, var(--border));
+  box-shadow: var(--shadow-md);
+}
+
+.review__quote-mark {
+  font-family: 'Fraunces', serif;
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 0.6;
+  color: var(--accent);
+  opacity: 0.25;
+  font-variation-settings: 'SOFT' 100, 'opsz' 144;
+}
+
+.review__text {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--text);
+  flex: 1;
+}
+
+.review__author {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border);
+}
+
+.review__avatar {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+  color: var(--accent);
+  border-radius: var(--radius-full);
+  font-family: 'Fraunces', serif;
+  font-size: 1.125rem;
+  font-weight: 700;
+  font-variation-settings: 'SOFT' 30, 'opsz' 96;
+  overflow: hidden;
+}
+
+.review__avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.review__author-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.review__author-name {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.review__author-role {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.review__object {
+  font-size: 0.75rem;
+  color: var(--accent);
+  margin-top: var(--space-2);
+  font-weight: 500;
+}
+
+/* ── Certs side panel ── */
+.certs {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.certs__title {
+  font-family: 'Fraunces', serif;
+  font-size: 1.375rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  margin-bottom: var(--space-2);
+}
+
+.certs__list {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.cert {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  transition: all var(--t-base);
+}
+
+.cert:hover { border-color: var(--accent); }
+
+.cert__icon {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+  color: var(--accent);
+  border-radius: var(--radius-sm);
+}
+
+.cert__icon svg { width: 18px; height: 18px; }
+
+.cert__text {
+  font-size: 0.8125rem;
+  line-height: 1.45;
+}
+
+.cert__text strong {
+  display: block;
+  color: var(--text);
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.cert__text span { color: var(--text-muted); }
+
+/* FPC banner */
+.fpc {
+  margin-top: var(--space-5);
+  padding: var(--space-5);
+  background: var(--bg-accent);
+  color: var(--text-inv);
+  border-radius: var(--radius-xl);
+  position: relative;
+  overflow: hidden;
+}
+
+.fpc::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 30% 0%,
+    color-mix(in srgb, var(--accent) 35%, transparent) 0%,
+    transparent 60%);
+  pointer-events: none;
+}
+
+.fpc__overline {
+  position: relative;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: color-mix(in srgb, var(--text-inv) 60%, transparent);
+  margin-bottom: var(--space-2);
+}
+
+.fpc__title {
+  position: relative;
+  font-family: 'Fraunces', serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: var(--text-inv);
+  margin-bottom: var(--space-3);
+  font-variation-settings: 'SOFT' 30, 'opsz' 96;
+}
+
+.fpc__desc {
+  position: relative;
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: color-mix(in srgb, var(--text-inv) 75%, transparent);
+}

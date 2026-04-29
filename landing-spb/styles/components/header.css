@@ -1,0 +1,312 @@
+/* ============================================================
+   Header
+   ============================================================ */
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-header);
+  height: var(--header-h);
+  background: linear-gradient(180deg,
+    rgba(11, 14, 22, 0.75) 0%,
+    rgba(11, 14, 22, 0.35) 70%,
+    transparent 100%);
+  backdrop-filter: saturate(180%) blur(8px);
+  -webkit-backdrop-filter: saturate(180%) blur(8px);
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--t-base), background var(--t-base), color var(--t-base);
+  color: var(--text-inv);
+}
+
+.header .logo,
+.header .nav__link,
+.header .header__phone {
+  color: var(--text-inv);
+}
+
+.header .logo__sub {
+  color: color-mix(in srgb, var(--text-inv) 65%, transparent);
+}
+
+.header .nav__link:hover,
+.header .header__phone:hover {
+  color: var(--accent);
+}
+
+.header .messenger {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.18);
+  color: var(--text-inv);
+  backdrop-filter: blur(8px);
+}
+
+.header .messenger:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--bg);
+}
+
+.header .burger {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.18);
+  color: var(--text-inv);
+  backdrop-filter: blur(8px);
+}
+
+/* Состояние «прокручено» — обычная светлая шапка */
+.header.is-scrolled {
+  background: color-mix(in srgb, var(--bg) 95%, transparent);
+  border-bottom-color: var(--border);
+  color: var(--text);
+}
+
+.header.is-scrolled .logo,
+.header.is-scrolled .nav__link,
+.header.is-scrolled .header__phone {
+  color: var(--text);
+}
+
+.header.is-scrolled .logo__sub {
+  color: var(--text-muted);
+}
+
+.header.is-scrolled .messenger {
+  background: var(--bg-card);
+  border-color: var(--border);
+  color: var(--text);
+  backdrop-filter: none;
+}
+
+.header.is-scrolled .burger {
+  background: var(--bg-card);
+  border-color: var(--border);
+  color: var(--text);
+  backdrop-filter: none;
+}
+
+.header__inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  flex-wrap: nowrap;
+}
+
+.header__contacts {
+  flex-wrap: nowrap;
+}
+
+/* ── Logo ── */
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-family: 'Fraunces', serif;
+  font-weight: 800;
+  font-size: 1.375rem;
+  line-height: 1;
+  letter-spacing: -0.025em;
+  color: var(--text);
+  font-variation-settings: 'SOFT' 20, 'opsz' 96;
+  transition: color var(--t-base);
+  white-space: nowrap;
+}
+
+/* Знак-волна (SVG-логотип) */
+.logo__mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 36px;
+  flex-shrink: 0;
+  transition: transform var(--t-base);
+  filter: drop-shadow(0 2px 6px rgba(40, 64, 189, 0.15));
+}
+
+.logo__mark svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.logo:hover .logo__mark {
+  transform: translateX(2px);
+}
+
+/* Текст «СК ВЕКТОР» */
+.logo__text {
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1px;
+  line-height: 0.95;
+}
+
+.logo__sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+@media (min-width: 480px) {
+  .logo__text { display: inline-flex; }
+}
+
+.logo:hover { color: var(--accent); }
+.logo:hover .logo__sub { color: var(--accent); }
+
+/* ── Nav ── */
+.nav {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .nav {
+    display: flex;
+    align-items: center;
+    gap: var(--space-6);
+  }
+}
+
+.nav__link {
+  position: relative;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--text);
+  padding-block: var(--space-2);
+  transition: color var(--t-base);
+}
+
+.nav__link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: 2px;
+  height: 1px;
+  background: var(--accent);
+  transition: right var(--t-slow);
+}
+
+.nav__link:hover {
+  color: var(--accent);
+}
+
+.nav__link:hover::after {
+  right: 0;
+}
+
+/* ── Contacts ── */
+.header__contacts {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.header__phone {
+  display: none;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  color: var(--text);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  transition: color var(--t-base);
+  white-space: nowrap;
+}
+
+@media (min-width: 1100px) {
+  .header__phone { display: inline-flex; align-items: center; gap: var(--space-2); }
+}
+
+.header__phone:hover {
+  color: var(--accent);
+}
+
+.header__phone-icon {
+  width: 18px;
+  height: 18px;
+  color: var(--accent);
+}
+
+/* ── Messengers ── */
+.messengers {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.messenger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  color: var(--text);
+  background: var(--bg-card);
+  transition: all var(--t-base);
+}
+
+.messenger svg {
+  width: 18px;
+  height: 18px;
+}
+
+.messenger--max span {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.messenger:hover {
+  background: var(--accent);
+  color: var(--bg);
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.header__cta {
+  display: none;
+}
+
+@media (min-width: 1280px) {
+  .header__cta { display: inline-flex; }
+}
+
+/* ── Burger (mobile) ── */
+.burger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--bg-card);
+  color: var(--text);
+  transition: all var(--t-base);
+}
+
+.burger svg {
+  width: 20px;
+  height: 20px;
+}
+
+@media (min-width: 1024px) {
+  .burger { display: none; }
+}
+
+.burger:hover {
+  background: var(--text);
+  color: var(--bg);
+}

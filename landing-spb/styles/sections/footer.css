@@ -1,0 +1,215 @@
+/* ============================================================
+   Footer
+   ============================================================ */
+
+.footer {
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+  padding-block: clamp(3rem, 4vw + 1.5rem, 5rem);
+}
+
+.footer__top {
+  display: grid;
+  gap: clamp(2rem, 3vw, 3rem);
+  grid-template-columns: 1fr;
+  margin-bottom: clamp(2.5rem, 4vw, 4rem);
+}
+
+@media (min-width: 768px) {
+  .footer__top { grid-template-columns: 1.2fr 0.8fr 0.8fr 0.8fr; }
+}
+
+.footer__brand .logo {
+  margin-bottom: var(--space-4);
+}
+
+.footer__tagline {
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+  max-width: 28ch;
+  margin-bottom: var(--space-5);
+}
+
+.footer__stats {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+.footer__stats li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.footer__stats strong {
+  color: var(--text);
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 0.9375rem;
+}
+
+.footer__col-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: var(--space-4);
+}
+
+.footer__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.footer__list a {
+  font-size: 0.9375rem;
+  color: var(--text);
+  transition: color var(--t-base);
+}
+
+.footer__list a:hover { color: var(--accent); }
+
+.footer__city {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  margin-bottom: var(--space-4);
+}
+
+.footer__city-name {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+.footer__city-phone {
+  font-family: 'Fraunces', serif;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: -0.01em;
+  font-variation-settings: 'SOFT' 30, 'opsz' 96;
+}
+
+.footer__city-phone:hover { color: var(--accent); }
+
+.footer__city-channels {
+  display: flex;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+
+.footer__city-channels a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: var(--bg-muted);
+  color: var(--text);
+  border-radius: var(--radius-sm);
+  transition: all var(--t-base);
+}
+
+.footer__city-channels a:hover {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+.footer__city-channels svg { width: 14px; height: 14px; }
+
+.footer__conditions {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: 1fr;
+  padding: var(--space-5);
+  margin-bottom: var(--space-7);
+  background: var(--bg-muted);
+  border-radius: var(--radius-xl);
+}
+
+@media (min-width: 640px) {
+  .footer__conditions { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1024px) {
+  .footer__conditions { grid-template-columns: repeat(4, 1fr); }
+}
+
+.footer__condition {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: 0.875rem;
+}
+
+.footer__condition svg {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  color: var(--accent);
+}
+
+.footer__condition strong {
+  display: block;
+  color: var(--text);
+  font-weight: 600;
+}
+
+.footer__condition span {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.footer__bottom {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--border);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+@media (min-width: 768px) {
+  .footer__bottom {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.footer__legal {
+  line-height: 1.5;
+}
+
+.footer__sro {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  background: var(--bg-muted);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  font-weight: 500;
+}
+
+.footer__sro svg {
+  width: 14px;
+  height: 14px;
+  color: var(--accent);
+}
+
+.footer__company {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
