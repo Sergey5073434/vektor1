@@ -192,6 +192,7 @@
           return;
         }
         if (consentCb && !consentCb.checked) {
+          consentCb.closest('.consent')?.classList.add('consent--error');
           consentCb.focus();
           return;
         }
@@ -233,6 +234,12 @@
     if (form.classList.contains('hero__form') || form.classList.contains('final-cta__form')) {
       form.addEventListener('submit', (e) => {
         e.preventDefault();
+        const consentCb = form.querySelector('input[type="checkbox"]');
+        if (consentCb && !consentCb.checked) {
+          consentCb.closest('.consent')?.classList.add('consent--error');
+          consentCb.focus();
+          return;
+        }
         const fd = new FormData(form);
         const data = Object.fromEntries(fd.entries());
         console.log('Form submission:', data);
@@ -287,6 +294,12 @@
           form.querySelector('input[name="phone"]').focus();
           return;
         }
+        const consentCb = form.querySelector('input[type="checkbox"]');
+        if (consentCb && !consentCb.checked) {
+          consentCb.closest('.consent')?.classList.add('consent--error');
+          consentCb.focus();
+          return;
+        }
         console.log('Chat widget submission:', data);
         chatWidget.classList.add('is-sent');
         form.reset();
@@ -325,6 +338,13 @@
       }
     }, { passive: true });
   }
+
+  /* ── Consent checkbox: сброс класса ошибки при отметке ── */
+  document.querySelectorAll('.consent input[type="checkbox"]').forEach((cb) => {
+    cb.addEventListener('change', () => {
+      if (cb.checked) cb.closest('.consent')?.classList.remove('consent--error');
+    });
+  });
 
   /* ── Active nav highlight ── */
   const navLinks = document.querySelectorAll('.nav__link');

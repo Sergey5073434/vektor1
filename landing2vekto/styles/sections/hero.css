@@ -450,6 +450,23 @@
   text-underline-offset: 2px;
 }
 
+.consent--error {
+  color: #c0392b;
+  animation: consent-shake 0.35s ease;
+}
+
+.consent--error input[type="checkbox"] {
+  outline: 2px solid #c0392b;
+  outline-offset: 1px;
+  border-radius: 2px;
+}
+
+@keyframes consent-shake {
+  0%, 100% { transform: translateX(0); }
+  25%       { transform: translateX(-4px); }
+  75%       { transform: translateX(4px); }
+}
+
 .hero__bonus {
   position: relative;
   display: flex;
